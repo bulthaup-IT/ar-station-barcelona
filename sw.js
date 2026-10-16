@@ -1,6 +1,6 @@
 /* Offline-Speicher der AR-Station. Diese Datei muss neben index.html liegen.
    Nur bei einer neuen Version von index.html CACHE hochzählen, sonst nichts ändern. */
-var CACHE = "ar-station-v7-test-004";
+var CACHE = "ar-station-v7-test-005";
 var FILES = ["./", "./index.html"];
 
 self.addEventListener("install", function (e) {
