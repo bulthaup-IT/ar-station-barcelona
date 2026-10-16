@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AR Station">
+<meta name="theme-color" content="#000000">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjA3YzFjNGI0LTE5OTgtNDE1ZS04YTk0LTBiNDk3NTVlYjNhMAAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNoXHiIGgf6OpvvZOf05gOJKgAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6MTUzOGIxZDctY2JkNy00ZjRmLWEzZWItOTcwYTYyZjYwYjM2bHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaJ3ycqYAW2L7Y7J7B/FbR5cAAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIA3RAcrj143IZ2Kvze2ftG+Qg1AW0WDPYRUOqCU9+4FlpGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2hICiU+7ogN6lHOCJTYYg23AAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFggQ+jdIKjc3a1ENPKkCcsa79ZwGsjZGem1tdWjZun5VKhkbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTowN2MxYzRiNC0xOTk4LTQxNWUtOGE5NC0wYjQ5NzU1ZWIzYTAvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDo5MTJiZTM0OS05YWUwLTQ0MzktOTk3My01ODY2ZjBhNzZkZWJyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggDdEByuPXjchnYq/N7Z+0b5CDUBbRYM9hFQ6oJT37gWWiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIMWW0DHd/IbFiaelDdp1fxu0VHFo+XIAc2CzEoOSRfnsomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIHW40A9Oy6dqWh0l5IVqxQ4+PSXQ3l1XnXPdUQI+qCacdGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2WEC9YfiY6XvjQgiwbcNmc9iQHM8kOy7bxonmMhi44qoWoBXlKOBhyT11IuJ8Il1pIWmlo/wl88nNVs8WsxDd6S6ce7IG3AAAAg1JREFUeJzt2rGKg0AUQNHNktZi/P9vtPEHttkiSC6k0TFwTmc1g1weD/ExxviBd35nX4D7EgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgfpOevgbVlmHf2N1n2//lCTgyQOkjhI4iBNW0gPpixcd3aHhd3kIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjP2Rf4ty3L7CtwZHKQxEESB0kcpGkL6brvs47mQyYHSRwkcZDEQRIHSRwkcZDEQRIHSRykUz6fb9v2+riu6xmncPZ7NjlI4iCJgyQOkjhIV/zsc1iq+RYmB0kcJHGQxEG6YiH1+fwkZ2/6JgdJHCRxkMRBEgfpMcaYfQduyuQgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIg/QFjbhalfmA/FQAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjA3YzFjNGI0LTE5OTgtNDE1ZS04YTk0LTBiNDk3NTVlYjNhMAAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNoXHiIGgf6OpvvZOf05gOJKgAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6MTUzOGIxZDctY2JkNy00ZjRmLWEzZWItOTcwYTYyZjYwYjM2bHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaJ3ycqYAW2L7Y7J7B/FbR5cAAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIA3RAcrj143IZ2Kvze2ftG+Qg1AW0WDPYRUOqCU9+4FlpGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2hICiU+7ogN6lHOCJTYYg23AAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFggQ+jdIKjc3a1ENPKkCcsa79ZwGsjZGem1tdWjZun5VKhkbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTowN2MxYzRiNC0xOTk4LTQxNWUtOGE5NC0wYjQ5NzU1ZWIzYTAvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDo5MTJiZTM0OS05YWUwLTQ0MzktOTk3My01ODY2ZjBhNzZkZWJyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggDdEByuPXjchnYq/N7Z+0b5CDUBbRYM9hFQ6oJT37gWWiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIMWW0DHd/IbFiaelDdp1fxu0VHFo+XIAc2CzEoOSRfnsomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIHW40A9Oy6dqWh0l5IVqxQ4+PSXQ3l1XnXPdUQI+qCacdGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2WEC9YfiY6XvjQgiwbcNmc9iQHM8kOy7bxonmMhi44qoWoBXlKOBhyT11IuJ8Il1pIWmlo/wl88nNVs8WsxDd6S6ce7IG3AAAAg1JREFUeJzt2rGKg0AUQNHNktZi/P9vtPEHttkiSC6k0TFwTmc1g1weD/ExxviBd35nX4D7EgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgfpOevgbVlmHf2N1n2//lCTgyQOkjhI4iBNW0gPpixcd3aHhd3kIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjP2Rf4ty3L7CtwZHKQxEESB0kcpGkL6brvs47mQyYHSRwkcZDEQRIHSRwkcZDEQRIHSRykUz6fb9v2+riu6xmncPZ7NjlI4iCJgyQOkjhIV/zsc1iq+RYmB0kcJHGQxEG6YiH1+fwkZ2/6JgdJHCRxkMRBEgfpMcaYfQduyuQgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIg/QFjbhalfmA/FQAAAABJRU5ErkJggg==">
+<title>AR Station</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden;
+    font-family: "Helvetica Neue", Arial, sans-serif; color: #fff;
+    -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+    touch-action: manipulation; overscroll-behavior: none; }
+  body.kiosk { cursor: none; }
+
+  /* Bühne: Querformat 4:3 oder Hochformat 3:4 je nach Station */
+  #stage { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden; background: #2b2b2b;
+    width: min(100vw, 133.333vh); aspect-ratio: 4 / 3; }
+  body.portrait #stage { width: min(100vw, 75vh); aspect-ratio: 3 / 4; }
+  body.cover #stage { width: max(100vw, 133.333vh); }
+  body.cover.portrait #stage { width: max(100vw, 75vh); }
+  body.drawing #stage { touch-action: none; }
+  #video, #fallback, #svg, #grid { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #video { object-fit: cover; }
+  #fallback { display: none; object-fit: cover; background: linear-gradient(160deg, #3a3a3a, #1d1d1d); }
+  #svg, #grid { pointer-events: none; }
+  #grid { display: none; }
+  #grid.show { display: block; }
+
+  #overlay { filter: drop-shadow(0 0 4px rgba(0,0,0,.55)); }
+  .line { stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .lbl { font-size: 40px; font-weight: 500; paint-order: stroke; stroke: rgba(0,0,0,.55); stroke-width: 8px; }
+  .draft { stroke: #00e5ff; stroke-width: 3; fill: none; }
+  .draftpt { fill: #00e5ff; }
+
+  #caption { position: fixed; left: 0; right: 0; bottom: max(28px, env(safe-area-inset-bottom));
+    text-align: center; padding: 0 5vw; pointer-events: none; opacity: 0; transition: opacity .5s; }
+  #caption span { display: inline-block; max-width: 900px; padding: 14px 28px;
+    background: rgba(0,0,0,.58); font-size: clamp(20px, 2.6vw, 38px); line-height: 1.25; letter-spacing: .01em; }
+
+  #start { position: fixed; inset: 0; z-index: 50; display: none; flex-direction: column;
+    align-items: center; justify-content: center; gap: 18px; background: #151515; text-align: center; padding: 6vw; }
+  #start h1 { margin: 0; font-weight: 300; font-size: clamp(28px, 4vw, 56px); }
+  #start p { margin: 0; max-width: 640px; font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: #bbb; }
+  #start button { margin-top: 10px; padding: 16px 34px; font-size: 22px; color: #111; background: #fff; border: 0; }
+  #startAlt { background: transparent !important; color: #999 !important; font-size: 16px !important; text-decoration: underline; padding: 6px !important; }
+
+  #corner { position: fixed; left: 0; top: 0; width: 110px; height: 110px; z-index: 60; }
+
+  /* PIN */
+  #pin { position: fixed; inset: 0; z-index: 95; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,.85); }
+  #pin.show { display: flex; }
+  #pin .box { background: #1b1b1b; padding: 20px; width: 300px; text-align: center; }
+  #pinDots { font-size: 34px; letter-spacing: 12px; min-height: 44px; margin-bottom: 10px; }
+  #pin .keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  #pin .keys button { padding: 18px 0; font-size: 24px; background: #333; color: #fff; border: 0; }
+  #pin .keys button.k0 { grid-column: 2; }
+
+  /* Menü */
+  #calib { position: fixed; right: 12px; top: 12px; z-index: 70; width: min(370px, 94vw);
+    max-height: calc(100vh - 24px); overflow-y: auto; display: none; cursor: default;
+    background: rgba(20,20,20,.95); padding: 16px; font-size: 15px; -webkit-overflow-scrolling: touch;
+    -webkit-user-select: text; user-select: text; }
+  #calib.show { display: block; }
+  #calib.hidden { display: none !important; }
+  #calib h2 { margin: 0 0 8px; font-size: 17px; font-weight: 500; }
+  #calib h2.sec { margin-top: 20px; padding-top: 14px; border-top: 1px solid #444; }
+  #calib label { display: block; margin: 9px 0 2px; color: #ccc; }
+  #calib input[type=range], #calib select { width: 100%; }
+  #calib select { padding: 8px; font-size: 15px; }
+  #calib .row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  #calib button { flex: 1 1 45%; padding: 11px 8px; font-size: 15px; background: #fff; border: 0; color: #111; }
+  #calib button.alt { background: #444; color: #fff; }
+  #calib button.warn { background: #7a1d1d; color: #fff; }
+  #calib textarea { width: 100%; height: 120px; margin-top: 10px; font: 12px/1.3 Consolas, monospace;
+    background: #111; color: #9f9; border: 1px solid #444; }
+  #status { font: 13px/1.5 Consolas, monospace; color: #aaa; background: #111; padding: 8px; white-space: pre-wrap; }
+  #hint { margin-top: 10px; color: #8fe; font-size: 14px; min-height: 1.3em; }
+
+  #mini { position: fixed; left: 50%; transform: translateX(-50%); bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 75; display: none; gap: 6px; align-items: center; justify-content: center; flex-wrap: wrap;
+    width: max-content; max-width: 96vw; padding: 8px; background: rgba(20,20,20,.94); }
+  #mini select, #mini button { font-size: 15px; padding: 10px 12px; border: 0; }
+  #mini select { background: #fff; color: #111; max-width: 30vw; }
+  #mini button { background: #fff; color: #111; }
+  #mini button.alt { background: #444; color: #fff; }
+  #mini.top { bottom: auto; top: max(8px, env(safe-area-inset-top)); }
+  #mini .mh { flex: 1 1 100%; text-align: center; color: #8fe; font-size: 13px; min-height: 1.2em; }
+
+  /* Lupe beim Zeichnen */
+  #loupe { position: fixed; z-index: 80; width: 200px; height: 200px; border-radius: 50%; display: none;
+    border: 3px solid #00e5ff; box-shadow: 0 0 12px rgba(0,0,0,.7); pointer-events: none; background: #000; }
+
+  #snapView { position: fixed; inset: 0; z-index: 90; display: none; flex-direction: column; align-items: center;
+    justify-content: center; gap: 12px; background: rgba(0,0,0,.92); padding: 16px; text-align: center; }
+  #snapView img { max-width: 100%; max-height: 78vh; border: 1px solid #555; }
+  #snapView button { padding: 12px 24px; background: #fff; color: #111; border: 0; font-size: 16px; }
+
+  @media (prefers-reduced-motion: reduce) { #caption { transition: none; } }
+</style>
+</head>
+<body class="kiosk">
+
+<div id="stage">
+  <video id="video" playsinline muted autoplay></video>
+  <img id="fallback" alt="">
+  <svg id="svg" viewBox="0 0 1440 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g id="overlay">
+      <g id="anim"></g>
+      <g id="existing" style="display:none"></g>
+      <g id="draft"></g>
+    </g>
+  </svg>
+  <svg id="grid" viewBox="0 0 1440 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g id="gridlines" stroke="rgba(0,255,255,.7)" stroke-width="2"></g>
+  </svg>
+</div>
+
+<div id="caption"><span></span></div>
+
+<div id="start">
+  <h1>Kamera starten</h1>
+  <p id="startMsg">Tippen, um das Kamerabild zu aktivieren. Der Ablauf startet danach automatisch und läuft endlos.</p>
+  <button id="startBtn" type="button">Starten</button>
+  <button id="startAlt" type="button" style="display:none">Ohne Kamera fortfahren</button>
+</div>
+
+<div id="corner"></div>
+
+<div id="pin">
+  <div class="box">
+    <div style="margin-bottom:8px;color:#bbb">PIN eingeben</div>
+    <div id="pinDots"></div>
+    <div class="keys">
+      <button type="button">1</button><button type="button">2</button><button type="button">3</button>
+      <button type="button">4</button><button type="button">5</button><button type="button">6</button>
+      <button type="button">7</button><button type="button">8</button><button type="button">9</button>
+      <button type="button" data-k="x">✕</button><button type="button">0</button><button type="button" data-k="b">⌫</button>
+    </div>
+  </div>
+</div>
+
+<div id="calib">
+  <h2>Gerät</h2>
+  <label>Station dieses iPads</label>
+  <select id="station"></select>
+  <div id="status" style="margin-top:10px"></div>
+
+  <h2 class="sec">Ausrichtung</h2>
+  <label>Horizontal: <b id="vx"></b></label>
+  <input id="rx" type="range" min="-600" max="600" step="1">
+  <label>Vertikal: <b id="vy"></b></label>
+  <input id="ry" type="range" min="-600" max="600" step="1">
+  <label>Skalierung: <b id="vs"></b></label>
+  <input id="rs" type="range" min="0.5" max="1.5" step="0.002">
+  <label>Drehung: <b id="vr"></b>°</label>
+  <input id="rr" type="range" min="-10" max="10" step="0.05">
+  <label><input id="gridToggle" type="checkbox"> Hilfsraster anzeigen</label>
+  <div class="row"><button id="reset" type="button" class="alt">Ausrichtung zurücksetzen</button></div>
+
+  <h2 class="sec">Zeichnen</h2>
+  <label><input id="dActive" type="checkbox"> Zeichenmodus aktiv (Animation pausiert)</label>
+  <label>Schritt</label>
+  <select id="dStep"></select>
+  <label>Werkzeug</label>
+  <select id="dTool">
+    <option value="line">Linie (2 Punkte)</option>
+    <option value="dim">Maßlinie mit Text (2 Punkte)</option>
+    <option value="rect">Rahmen (2 Ecken)</option>
+    <option value="poly">Linienzug (beliebig viele Punkte)</option>
+    <option value="free">Freihandlinie (mit dem Finger ziehen)</option>
+    <option value="par">Parallele zu bestehender Linie</option>
+    <option value="text">Beschriftung (1 Punkt)</option>
+  </select>
+  <label>Farbe</label>
+  <select id="dColor"></select>
+  <label><input id="dSnap" type="checkbox"> Waagerecht/senkrecht einrasten (±4°)</label>
+  <div class="row">
+    <button id="dFinish" type="button" class="alt">Linienzug abschließen</button>
+    <button id="dUndo" type="button" class="alt">Rückgängig</button>
+  </div>
+  <div id="hint"></div>
+
+  <h2 class="sec">Referenzbild (Ersatz bei Kameraausfall)</h2>
+  <div class="row">
+    <button id="refSave" type="button">Referenzbild speichern</button>
+    <button id="refShow" type="button" class="alt">Ansehen</button>
+  </div>
+  <label><input id="fbTest" type="checkbox"> Kameraausfall simulieren</label>
+
+  <h2 class="sec">Sicherung</h2>
+  <div class="row">
+    <button id="exp" type="button">Exportieren (AirDrop)</button>
+    <button id="imp" type="button">Importieren</button>
+    <button id="dCode" type="button" class="alt">Code anzeigen</button>
+    <button id="dClear" type="button" class="warn">Station löschen</button>
+  </div>
+  <input id="impFile" type="file" style="display:none">
+  <textarea id="dOut" readonly placeholder="Code zum Einfügen in CONFIG.stations[n].drawn"></textarea>
+
+  <div class="row" style="margin-top:20px">
+    <button id="dReload" type="button" class="alt">Neu laden</button>
+    <button id="done" type="button">Schließen</button>
+  </div>
+</div>
+
+<div id="mini">
+  <select id="mStep"></select>
+  <select id="mTool">
+    <option value="line">Linie</option>
+    <option value="dim">Maßlinie</option>
+    <option value="rect">Rahmen</option>
+    <option value="poly">Linienzug</option>
+    <option value="free">Freihand</option>
+    <option value="par">Parallele</option>
+    <option value="text">Text</option>
+  </select>
+  <select id="mColor"></select>
+  <button id="mUndo" type="button" class="alt">Zurück</button>
+  <button id="mFinish" type="button">Abschließen</button>
+  <button id="mMenu" type="button" class="alt">Menü</button>
+  <button id="mPos" type="button" class="alt" title="Leiste nach oben/unten">⇅</button>
+  <div class="mh" id="mHint"></div>
+</div>
+
+<canvas id="loupe" width="400" height="400"></canvas>
+
+<div id="snapView">
+  <img id="snapImg" alt="Referenzbild">
+  <div id="snapInfo"></div>
+  <button id="snapClose" type="button">Schließen</button>
+</div>
+
+<script>
+/* =====================================================================
+   KONFIGURATION
+   Querformat: Koordinaten 1440 x 1080 · Hochformat: 1080 x 1440
+   Gezeichnete Einblendungen entstehen vor Ort im Zeichenmodus.
+   ===================================================================== */
+var CONFIG = {
+  version: "7.3-test (2026-10-16)",
+  pin: "1234",                  // PIN für das Menü. "" = ohne PIN
+  langs: ["de"],                // Sprache(n). Mehrere Einträge = Wechsel je Durchlauf, z. B. ["de", "en"]
+  fit: "contain",               // "contain" = ganzes Bild sichtbar | "cover" = Bildschirm füllen
+  showCaptions: false,          // Untertitel (Position/Schritt) im Ablauf anzeigen: true | false
+  freehandSmooth: 4,            // Glättung der Freihandlinie (größer = ruhiger, weniger Details)
+  pause: 2.5,                   // Sekunden Pause am Ende jedes Durchlaufs
+  fadeOut: 0.6,
+  colors: [
+    { name: "Rot", v: "#FF1E1E" },
+    { name: "Weiß", v: "#FFFFFF" },
+    { name: "Gelb", v: "#FFD23F" },
+    { name: "Cyan", v: "#00E5FF" }
+  ],
+
+  /* Stationen: Name, Format ("portrait" = hochkant, "landscape" = quer), Schritte mit Untertiteln.
+     drawn: hier den Code aus „Code anzeigen" einfügen, damit die Zeichnung fest in der Datei steht. */
+  stations: {
+    1: station("Position 1", "landscape"),
+    2: station("Position 2", "portrait"),
+    3: station("Position 3", "landscape"),
+    4: station("Position 4", "portrait"),
+    5: station("Position 5", "landscape"),
+    6: station("Position 6", "portrait"),
+    7: station("Position 7", "landscape")
+  }
+};
+
+/* Platzhalter-Schritte. Für echte Inhalte station(...) durch ein eigenes Objekt ersetzen:
+   { name: "...", orient: "portrait", drawn: [], steps: [ { dur: 7, caption: { de: "..." } }, ... ] } */
+function station(name, orient) {
+  var steps = [];
+  for (var i = 1; i <= 4; i++) {
+    steps.push({ dur: 7, caption: { de: name + " · Schritt " + i } });
+  }
+  return { name: name, orient: orient, steps: steps, drawn: [] };
+}
+
+/* =====================================================================
+   AB HIER NICHTS ÄNDERN
+   ===================================================================== */
+(function () {
+  "use strict";
+  var NS = "http://www.w3.org/2000/svg";
+  var P = "arp6_";
+  var $ = function (id) { return document.getElementById(id); };
+  var stage = $("stage"), svg = $("svg"), gridSvg = $("grid"), overlay = $("overlay");
+  var animG = $("anim"), existingG = $("existing"), draftG = $("draft");
+  var captionBox = $("caption"), captionSpan = captionBox.querySelector("span");
+  var video = $("video"), fallback = $("fallback"), startScreen = $("start");
+  var panel = $("calib"), mini = $("mini"), loupe = $("loupe"), lctx = loupe.getContext("2d");
+
+  if (CONFIG.fit === "cover") document.body.classList.add("cover");
+  if (!CONFIG.showCaptions) captionBox.style.display = "none";
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function lsGet(k, d) { try { var v = JSON.parse(localStorage.getItem(P + k)); return v == null ? d : v; } catch (e) { return d; } }
+  function lsSet(k, v) { try { localStorage.setItem(P + k, JSON.stringify(v)); } catch (e) {} }
+  function tr(o, lang) {
+    if (o == null) return "";
+    if (typeof o === "string") return o;
+    return o[lang] || o.de || o.en || o.es || Object.keys(o).map(function (k) { return o[k]; })[0] || "";
+  }
+
+  /* ---------- Referenzbilder (IndexedDB) ---------- */
+  var db = null;
+  function dbOpen() {
+    return new Promise(function (res) {
+      try {
+        var rq = indexedDB.open("arp6", 1);
+        rq.onupgradeneeded = function () { rq.result.createObjectStore("refs"); };
+        rq.onsuccess = function () { db = rq.result; res(); };
+        rq.onerror = function () { res(); };
+      } catch (e) { res(); }
+    });
+  }
+  function refGet(n) {
+    return new Promise(function (res) {
+      if (!db) return res(null);
+      try { var rq = db.transaction("refs").objectStore("refs").get(String(n));
+        rq.onsuccess = function () { res(rq.result || null); }; rq.onerror = function () { res(null); };
+      } catch (e) { res(null); }
+    });
+  }
+  function refPut(n, val) {
+    return new Promise(function (res) {
+      if (!db) return res(false);
+      try { var tx = db.transaction("refs", "readwrite");
+        if (val) tx.objectStore("refs").put(val, String(n)); else tx.objectStore("refs").delete(String(n));
+        tx.oncomplete = function () { res(true); }; tx.onerror = function () { res(false); };
+      } catch (e) { res(false); }
+    });
+  }
+
+  /* ---------- Zustand ---------- */
+  var stNo = String(lsGet("station", "1"));
+  if (!CONFIG.stations[stNo]) stNo = "1";
+  var ST, W, H, stored, cal, refData = null;
+  var drawActive = false, forceFallback = false, camLive = false;
+
+  function loadStation(n) {
+    stNo = String(n);
+    ST = CONFIG.stations[stNo];
+    var portrait = ST.orient === "portrait";
+    W = portrait ? 1080 : 1440; H = portrait ? 1440 : 1080;
+    document.body.classList.toggle("portrait", portrait);
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    gridSvg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    stored = lsGet("s" + stNo + "_drawn", []);
+    cal = lsGet("s" + stNo + "_cal", { x: 0, y: 0, s: 1, r: 0 });
+    buildGrid(); applyCal(); fillStepSelects(); buildScene();
+  }
+  function saveDrawn() { lsSet("s" + stNo + "_drawn", stored); }
+  function allDrawn() { return (ST.drawn || []).concat(stored); }
+
+  /* ---------- Elemente ---------- */
+  function mkEl(it, lang) {
+    var el, col = it.col || CONFIG.colors[0].v;
+    if (it.kind === "path") {
+      el = document.createElementNS(NS, "path");
+      el.setAttribute("d", it.d);
+      el.setAttribute("class", "line");
+      el.style.stroke = col;
+      el.setAttribute("pathLength", "1");
+      el.style.strokeDasharray = "1";
+      el.style.strokeDashoffset = "1";
+    } else {
+      el = document.createElementNS(NS, "text");
+      el.setAttribute("x", it.x); el.setAttribute("y", it.y);
+      el.setAttribute("text-anchor", it.anchor || "start");
+      el.setAttribute("class", "lbl");
+      el.style.fill = it.col || "#FFFFFF";
+      el.textContent = tr(it.text, lang);
+    }
+    return el;
+  }
+
+  function timeline(entries, stepNo) {
+    var cursor = 0.4, out = [];
+    entries.forEach(function (e) {
+      if (e.step !== stepNo) return;
+      var it = {}; for (var k in e) it[k] = e[k];
+      if (e.kind === "path") {
+        it.dur = e.tick ? 0.25 : clamp((e.len || 300) / 600, 0.35, 1.5);
+        it.at = cursor; cursor += it.dur + (e.tick ? 0.05 : 0.15);
+      } else { it.dur = 0.4; it.at = cursor; cursor += 0.6; }
+      out.push(it);
+    });
+    return { items: out, end: cursor };
+  }
+
+  function demoItems(idx) {
+    if (idx === 0) return [
+      { kind: "path", d: "M" + Math.round(W * .17) + " " + Math.round(H * .74) + " H" + Math.round(W * .83), at: .3, dur: 1.4 },
+      { kind: "text", x: Math.round(W / 2), y: Math.round(H * .74) - 34, anchor: "middle", text: "Beispiel: 920 mm", col: "#FFFFFF", at: 1.9, dur: .4 } ];
+    if (idx === 1) return [
+      { kind: "path", d: "M" + Math.round(W * .55) + " " + Math.round(H * .25) + " H" + Math.round(W * .86) + " V" + Math.round(H * .58) + " H" + Math.round(W * .55) + " Z", at: .3, dur: 1.4 },
+      { kind: "text", x: Math.round(W * .705), y: Math.round(H * .25) - 30, anchor: "middle", text: "Beispiel: Bereich", col: "#FFFFFF", at: 1.8, dur: .4 } ];
+    return [];
+  }
+
+  /* ---------- Szene ---------- */
+  var total = 0, t0 = performance.now(), currentStep = null, currentLang = null;
+  function buildScene() {
+    animG.innerHTML = ""; total = 0;
+    var d = allDrawn();
+    ST.steps.forEach(function (step, idx) {
+      var tl = timeline(d, idx + 1);
+      step.items = d.length === 0 ? demoItems(idx) : tl.items;
+      step.len = Math.max(step.dur, tl.end + 2.2);
+      step.start = total; total += step.len;
+      step.g = document.createElementNS(NS, "g"); step.g.style.display = "none";
+      animG.appendChild(step.g);
+      step.items.forEach(function (it) { var el = mkEl(it, CONFIG.langs[0]); el.style.opacity = "0"; it.el = el; step.g.appendChild(el); });
+    });
+    total += CONFIG.pause;
+    currentStep = null; currentLang = null; t0 = performance.now();
+  }
+
+  function frame(now) {
+    if (!drawActive && total > 0) {
+      var el = (now - t0) / 1000;
+      var loop = Math.floor(el / total), t = el % total;
+      var lang = CONFIG.langs[loop % CONFIG.langs.length];
+      var step = null;
+      for (var i = 0; i < ST.steps.length; i++) {
+        var s = ST.steps[i];
+        if (t >= s.start && t < s.start + s.len) { step = s; break; }
+      }
+      if (step !== currentStep || lang !== currentLang) {
+        if (currentStep && currentStep !== step) currentStep.g.style.display = "none";
+        currentStep = step; currentLang = lang;
+        if (step) {
+          step.g.style.display = "";
+          step.items.forEach(function (it) { if (it.kind === "text") it.el.textContent = tr(it.text, lang); });
+          captionSpan.textContent = tr(step.caption, lang);
+          captionBox.style.opacity = captionSpan.textContent ? "1" : "0";
+        } else captionBox.style.opacity = "0";
+      }
+      if (step) {
+        var local = t - step.start;
+        var out = clamp((step.len - local) / CONFIG.fadeOut, 0, 1);
+        if (out < 1) captionBox.style.opacity = String(out);
+        step.items.forEach(function (it) {
+          var p = clamp((local - (it.at || 0)) / (it.dur || 0.6), 0, 1);
+          if (it.kind === "path") {
+            it.el.style.strokeDashoffset = String(1 - p);
+            it.el.style.opacity = p > 0 ? String(out) : "0";
+          } else it.el.style.opacity = String(p * out);
+        });
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- Ausrichtung ---------- */
+  function applyCal() {
+    overlay.setAttribute("transform",
+      "translate(" + (W / 2 + cal.x) + " " + (H / 2 + cal.y) + ") rotate(" + cal.r + ") scale(" + cal.s + ") translate(" + (-W / 2) + " " + (-H / 2) + ")");
+    $("vx").textContent = cal.x; $("vy").textContent = cal.y;
+    $("vs").textContent = (+cal.s).toFixed(3); $("vr").textContent = (+cal.r).toFixed(2);
+    $("rx").value = cal.x; $("ry").value = cal.y; $("rs").value = cal.s; $("rr").value = cal.r;
+  }
+  [["rx", "x"], ["ry", "y"], ["rs", "s"], ["rr", "r"]].forEach(function (p) {
+    $(p[0]).addEventListener("input", function (e) { cal[p[1]] = parseFloat(e.target.value); applyCal(); lsSet("s" + stNo + "_cal", cal); });
+  });
+  $("reset").addEventListener("click", function () { cal = { x: 0, y: 0, s: 1, r: 0 }; applyCal(); lsSet("s" + stNo + "_cal", cal); });
+
+  function buildGrid() {
+    var html = "";
+    for (var x = 0; x <= W; x += 120) html += '<line x1="' + x + '" y1="0" x2="' + x + '" y2="' + H + '"/>';
+    for (var y = 0; y <= H; y += 120) html += '<line x1="0" y1="' + y + '" x2="' + W + '" y2="' + y + '"/>';
+    $("gridlines").innerHTML = html;
+  }
+  $("gridToggle").addEventListener("change", function (e) { gridSvg.classList.toggle("show", e.target.checked); });
+
+  /* ---------- Menü + PIN ---------- */
+  function openPanel() {
+    panel.classList.add("show"); panel.classList.remove("hidden");
+    document.body.classList.remove("kiosk"); updateStatus(); updateMini();
+  }
+  function closePanel() {
+    panel.classList.remove("show"); panel.classList.remove("hidden");
+    document.body.classList.add("kiosk");
+    gridSvg.classList.remove("show"); $("gridToggle").checked = false;
+    $("dActive").checked = false; setDrawActive(false); updateMini();
+  }
+  var pinBuf = "";
+  function askPin() {
+    if (!CONFIG.pin) { openPanel(); return; }
+    pinBuf = ""; $("pinDots").textContent = ""; $("pin").classList.add("show");
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("#pin .keys button"), function (b) {
+    b.addEventListener("click", function () {
+      var k = b.getAttribute("data-k");
+      if (k === "x") { $("pin").classList.remove("show"); return; }
+      if (k === "b") pinBuf = pinBuf.slice(0, -1); else pinBuf += b.textContent;
+      $("pinDots").textContent = pinBuf.replace(/./g, "●");
+      if (pinBuf.length >= CONFIG.pin.length) {
+        if (pinBuf === CONFIG.pin) { $("pin").classList.remove("show"); openPanel(); }
+        else { pinBuf = ""; $("pinDots").textContent = "falsch"; }
+      }
+    });
+  });
+  function togglePanel() { if (panel.classList.contains("show")) { if (panel.classList.contains("hidden")) { panel.classList.remove("hidden"); updateMini(); } else closePanel(); } else askPin(); }
+  $("done").addEventListener("click", closePanel);
+  var corner = $("corner"), pressTimer = null;
+  function pressStart() { clearTimeout(pressTimer); pressTimer = setTimeout(togglePanel, 1500); }
+  function pressEnd() { clearTimeout(pressTimer); }
+  corner.addEventListener("touchstart", pressStart, { passive: true });
+  corner.addEventListener("touchend", pressEnd); corner.addEventListener("touchcancel", pressEnd);
+  corner.addEventListener("mousedown", pressStart); corner.addEventListener("mouseup", pressEnd); corner.addEventListener("mouseleave", pressEnd);
+  document.addEventListener("keydown", function (e) { if ((e.key === "c" || e.key === "C") && !$("pin").classList.contains("show")) togglePanel(); });
+  document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+
+  /* Station */
+  Object.keys(CONFIG.stations).forEach(function (k) {
+    var o = document.createElement("option"); o.value = k;
+    o.textContent = k + " – " + CONFIG.stations[k].name + " (" + (CONFIG.stations[k].orient === "portrait" ? "hochkant" : "quer") + ")";
+    $("station").appendChild(o);
+  });
+  $("station").addEventListener("change", function (e) {
+    lsSet("station", e.target.value);
+    switchStation(e.target.value);
+  });
+  function switchStation(n) {
+    $("station").value = n;
+    var wasDraw = drawActive;
+    loadStation(n);
+    refGet(stNo).then(function (r) { refData = r; applyFallbackImage(); updateStatus(); });
+    if (wasDraw) renderExisting();
+    setHint("Station " + n + " geladen.");
+  }
+
+  function updateStatus() {
+    if (!panel.classList.contains("show")) return;
+    var sw = ("serviceWorker" in navigator) && navigator.serviceWorker.controller ? "bereit ✓" : "NICHT aktiv ✗";
+    var cam = camLive ? "live " + video.videoWidth + "×" + video.videoHeight + " ✓" : (forceFallback ? "Ausfall simuliert" : "aus ✗");
+    var ref = refData ? "vorhanden ✓ (" + (refData.date || "") + ")" : "fehlt ✗";
+    var lines = [
+      "Version:   " + CONFIG.version,
+      "Station:   " + stNo + " – " + ST.name + " (" + (ST.orient === "portrait" ? "hochkant" : "quer") + ")",
+      "Kamera:    " + cam,
+      "Offline:   " + sw,
+      "Ref.bild:  " + ref,
+      "Elemente:  " + allDrawn().length + " (davon " + (ST.drawn || []).length + " fest in Datei)",
+      "Speicher:  " + (persisted === null ? "?" : persisted ? "dauerhaft ✓" : "nicht garantiert"),
+      "Modus:     " + (window.navigator.standalone || matchMedia("(display-mode: standalone)").matches ? "Home-Bildschirm-App ✓" : "Browser-Tab")
+    ];
+    $("status").textContent = lines.join("\n");
+  }
+  var persisted = null;
+  try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist().then(function (p) { persisted = p; }); } catch (e) {}
+  setInterval(updateStatus, 2000);
+
+  /* ---------- Zeichenmodus ---------- */
+  var dStep = $("dStep"), dTool = $("dTool"), dColor = $("dColor"), mStep = $("mStep"), mTool = $("mTool"), mColor = $("mColor");
+  CONFIG.colors.forEach(function (c) {
+    [dColor, mColor].forEach(function (sel) { var o = document.createElement("option"); o.value = c.v; o.textContent = c.name; sel.appendChild(o); });
+  });
+  function fillStepSelects() {
+    var keep = dStep.value || "1";
+    dStep.innerHTML = ""; mStep.innerHTML = "";
+    ST.steps.forEach(function (s, i) {
+      var o = document.createElement("option"); o.value = i + 1; o.textContent = "Schritt " + (i + 1) + ": " + tr(s.caption, "de"); dStep.appendChild(o);
+      var m = document.createElement("option"); m.value = i + 1; m.textContent = "Schritt " + (i + 1); mStep.appendChild(m);
+    });
+    dStep.value = Math.min(parseInt(keep, 10), ST.steps.length); mStep.value = dStep.value;
+  }
+  function updateMini() {
+    var collapsed = panel.classList.contains("show") && panel.classList.contains("hidden");
+    mini.style.display = (drawActive && collapsed) ? "flex" : "none";
+    mStep.value = dStep.value; mTool.value = dTool.value; mColor.value = dColor.value;
+  }
+  mStep.addEventListener("change", function () { dStep.value = mStep.value; dStep.dispatchEvent(new Event("change")); });
+  mTool.addEventListener("change", function () { dTool.value = mTool.value; dTool.dispatchEvent(new Event("change")); });
+  mColor.addEventListener("change", function () { dColor.value = mColor.value; });
+  dColor.addEventListener("change", function () { mColor.value = dColor.value; });
+  $("mUndo").addEventListener("click", function () { $("dUndo").click(); });
+  $("mFinish").addEventListener("click", function () { $("dFinish").click(); });
+  $("mMenu").addEventListener("click", function () { panel.classList.remove("hidden"); updateMini(); });
+  $("mPos").addEventListener("click", function () { mini.classList.toggle("top"); });
+
+  var pts = [];
+  function setHint(msg) { $("hint").textContent = msg || ""; $("mHint").textContent = msg || ""; }
+  function updateHint() {
+    var t = dTool.value;
+    if (!drawActive) { setHint("Zeichenmodus ist aus."); return; }
+    var lp = " Finger auflegen, mit Lupe positionieren, loslassen setzt den Punkt.";
+    if (t === "par") { setHint(!parRef ? "Auf eine bestehende gerade Linie tippen (Bezugslinie)." + lp : (pts.length ? "Endpunkt setzen – er wird parallel ausgerichtet." : "Startpunkt der Parallele setzen. „Abschließen“ = andere Bezugslinie wählen.")); return; }
+    if (t === "free") { setHint("Linie mit dem Finger ziehen. Beim Loslassen wird sie geglättet und gespeichert."); return; }
+    if (t === "text") setHint("Stelle für die Beschriftung wählen." + lp);
+    else if (t === "poly") setHint((pts.length ? pts.length + " Punkt(e). Weiter oder „Abschließen“." : "Ersten Punkt setzen.") + lp);
+    else setHint((pts.length === 1 ? "Zweiten Punkt setzen." : "Ersten Punkt setzen.") + lp);
+  }
+  function stageToSvg(cx, cy) { var r = stage.getBoundingClientRect(); return [(cx - r.left) / r.width * W, (cy - r.top) / r.height * H]; }
+  function toOverlay(p) {
+    var dx = p[0] - (W / 2 + cal.x), dy = p[1] - (H / 2 + cal.y), a = -cal.r * Math.PI / 180;
+    var rx = dx * Math.cos(a) - dy * Math.sin(a), ry = dx * Math.sin(a) + dy * Math.cos(a);
+    return [Math.round(rx / cal.s + W / 2), Math.round(ry / cal.s + H / 2)];
+  }
+  function renderDraft() {
+    draftG.innerHTML = "";
+    if (!pts.length) return;
+    var p = document.createElementNS(NS, "path"); p.setAttribute("class", "draft");
+    p.setAttribute("d", pathD(pts)); draftG.appendChild(p);
+    pts.forEach(function (q) {
+      var c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", q[0]); c.setAttribute("cy", q[1]); c.setAttribute("r", 9); c.setAttribute("class", "draftpt");
+      draftG.appendChild(c);
+    });
+  }
+  function renderExisting() {
+    existingG.innerHTML = "";
+    timeline(allDrawn(), parseInt(dStep.value, 10)).items.forEach(function (it) {
+      var el = mkEl(it, CONFIG.langs[0]);
+      if (it.kind === "path") el.style.strokeDashoffset = "0";
+      el.style.opacity = "1"; existingG.appendChild(el);
+    });
+  }
+  function setDrawActive(on) {
+    drawActive = on;
+    document.body.classList.toggle("drawing", on);
+    animG.style.display = on ? "none" : "";
+    existingG.style.display = on ? "" : "none";
+    captionBox.style.opacity = "0";
+    if (on) renderExisting();
+    else { pts = []; renderDraft(); buildScene(); }
+    updateHint(); updateMini();
+  }
+  $("dActive").addEventListener("change", function (e) {
+    setDrawActive(e.target.checked);
+    if (e.target.checked) { panel.classList.add("hidden"); updateMini(); }
+  });
+  dStep.addEventListener("change", function () { pts = []; parRef = null; renderDraft(); if (drawActive) renderExisting(); updateHint(); });
+  dTool.addEventListener("change", function () { pts = []; parRef = null; renderDraft(); updateHint(); });
+
+  function pathLen(l) { var s = 0; for (var i = 1; i < l.length; i++) s += Math.hypot(l[i][0] - l[i - 1][0], l[i][1] - l[i - 1][1]); return Math.round(s); }
+  function pathD(l, close) { return l.map(function (q, i) { return (i ? "L" : "M") + q[0] + " " + q[1]; }).join(" ") + (close ? " Z" : ""); }
+  /* Mehrsprachige Eingabe: "Texto | Text | Text" in der Reihenfolge von CONFIG.langs */
+  function parseMulti(s) {
+    if (CONFIG.langs.length < 2) return s.trim();
+    var parts = s.split("|").map(function (x) { return x.trim(); });
+    if (parts.length === 1) return parts[0];
+    var o = {}; CONFIG.langs.forEach(function (l, i) { if (parts[i]) o[l] = parts[i]; });
+    return o;
+  }
+  var langHint = CONFIG.langs.length > 1 ? CONFIG.langs.map(function (l) { return l.toUpperCase(); }).join(" | ") + ", mit | trennen" : "Deutsch";
+  function addGroup(entries) {
+    var g = Date.now().toString(36), step = parseInt(dStep.value, 10), col = dColor.value;
+    entries.forEach(function (e) { e.step = step; e.g = g; if (!e.col) e.col = col; stored.push(e); });
+    saveDrawn();
+  }
+  function snapPt(prev, p) {
+    if (!$("dSnap").checked || !prev) return p;
+    var dx = p[0] - prev[0], dy = p[1] - prev[1];
+    var ang = Math.abs(Math.atan2(dy, dx) * 180 / Math.PI);
+    if (ang < 4 || ang > 176) return [p[0], prev[1]];
+    if (Math.abs(ang - 90) < 4) return [prev[0], p[1]];
+    return p;
+  }
+
+  function commit() {
+    var t = dTool.value;
+    if ((t === "line" && pts.length === 2) || (t === "poly" && pts.length >= 2)) {
+      addGroup([{ kind: "path", d: pathD(pts), len: pathLen(pts) }]);
+    } else if (t === "rect" && pts.length === 2) {
+      var a = pts[0], b = pts[1], r = [[a[0], a[1]], [b[0], a[1]], [b[0], b[1]], [a[0], b[1]]];
+      addGroup([{ kind: "path", d: pathD(r, true), len: pathLen(r.concat([r[0]])) }]);
+    } else if (t === "dim" && pts.length === 2) {
+      var p1 = pts[0], p2 = pts[1], dx = p2[0] - p1[0], dy = p2[1] - p1[1], L = Math.hypot(dx, dy) || 1;
+      var nx = -dy / L * 22, ny = dx / L * 22;
+      var g = [
+        { kind: "path", d: pathD([p1, p2]), len: Math.round(L) },
+        { kind: "path", d: pathD([[Math.round(p1[0] - nx), Math.round(p1[1] - ny)], [Math.round(p1[0] + nx), Math.round(p1[1] + ny)]]), len: 44, tick: true },
+        { kind: "path", d: pathD([[Math.round(p2[0] - nx), Math.round(p2[1] - ny)], [Math.round(p2[0] + nx), Math.round(p2[1] + ny)]]), len: 44, tick: true }
+      ];
+      var txt = window.prompt("Text zur Maßlinie (" + langHint + "; leer = kein Text):", "");
+      if (txt) {
+        var mx = Math.round((p1[0] + p2[0]) / 2), my = Math.round((p1[1] + p2[1]) / 2), hor = Math.abs(dx) >= Math.abs(dy);
+        g.push({ kind: "text", x: mx + (hor ? 0 : 30), y: my + (hor ? -30 : 12), anchor: hor ? "middle" : "start", text: parseMulti(txt), col: "#FFFFFF" });
+      }
+      addGroup(g);
+    } else return;
+    pts = []; renderDraft(); renderExisting(); updateHint();
+    setHint("Gespeichert.");
+  }
+
+  /* Lupe: Ausschnitt um den Finger, 3-fach vergrößert, Punkt wird beim Loslassen gesetzt */
+  function sourceInfo() {
+    var el = camLive && !forceFallback ? video : fallback;
+    var vw = el.videoWidth || el.naturalWidth, vh = el.videoHeight || el.naturalHeight;
+    if (!vw || !vh) return null;
+    var target = W / H, sx = 0, sy = 0, sw = vw, sh = vh;
+    if (vw / vh > target) { sw = vh * target; sx = (vw - sw) / 2; } else { sh = vw / target; sy = (vh - sh) / 2; }
+    return { el: el, sx: sx, sy: sy, sw: sw, sh: sh, vw: vw, vh: vh };
+  }
+  function drawLoupe(cx, cy) {
+    var r = stage.getBoundingClientRect(), k = r.width / W, Z = 3, Lc = 200;
+    var span = Lc / (Z * k), p = stageToSvg(cx, cy), src = sourceInfo(), C = loupe.width;
+    lctx.fillStyle = "#000"; lctx.fillRect(0, 0, C, C);
+    if (src) {
+      var fx = src.sw / W, fy = src.sh / H;
+      var x0 = src.sx + (p[0] - span / 2) * fx, y0 = src.sy + (p[1] - span / 2) * fy, w0 = span * fx, h0 = span * fy;
+      var cx0 = clamp(x0, 0, src.vw), cy0 = clamp(y0, 0, src.vh), cx1 = clamp(x0 + w0, 0, src.vw), cy1 = clamp(y0 + h0, 0, src.vh);
+      if (cx1 > cx0 && cy1 > cy0) {
+        try { lctx.drawImage(src.el, cx0, cy0, cx1 - cx0, cy1 - cy0, (cx0 - x0) / w0 * C, (cy0 - y0) / h0 * C, (cx1 - cx0) / w0 * C, (cy1 - cy0) / h0 * C); } catch (e) {}
+      }
+    }
+    lctx.strokeStyle = "#00e5ff"; lctx.lineWidth = 2;
+    lctx.beginPath(); lctx.moveTo(C / 2, 0); lctx.lineTo(C / 2, C / 2 - 12); lctx.moveTo(C / 2, C / 2 + 12); lctx.lineTo(C / 2, C);
+    lctx.moveTo(0, C / 2); lctx.lineTo(C / 2 - 12, C / 2); lctx.moveTo(C / 2 + 12, C / 2); lctx.lineTo(C, C / 2); lctx.stroke();
+    var top = cy - Lc - 70; if (top < 4) top = cy + 70;
+    loupe.style.left = clamp(cx - Lc / 2, 4, window.innerWidth - Lc - 4) + "px";
+    loupe.style.top = top + "px"; loupe.style.display = "block";
+  }
+  /* Freihandlinie: Punkte sammeln, beim Loslassen vereinfachen und glätten */
+  var freePts = [];
+  function freeAdd(e) {
+    var p = toOverlay(stageToSvg(e.clientX, e.clientY)), l = freePts[freePts.length - 1];
+    if (!l || Math.hypot(p[0] - l[0], p[1] - l[1]) >= 3) freePts.push(p);
+  }
+  function renderFree() {
+    draftG.innerHTML = "";
+    if (freePts.length < 2) return;
+    var el = document.createElementNS(NS, "path");
+    el.setAttribute("class", "line"); el.style.stroke = dColor.value; el.setAttribute("d", pathD(freePts));
+    draftG.appendChild(el);
+  }
+  function rdp(l, eps) {
+    if (l.length < 3) return l;
+    var a = l[0], b = l[l.length - 1], dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1, max = 0, idx = 0;
+    for (var i = 1; i < l.length - 1; i++) {
+      var d = Math.abs(dy * l[i][0] - dx * l[i][1] + b[0] * a[1] - b[1] * a[0]) / L;
+      if (d > max) { max = d; idx = i; }
+    }
+    if (max <= eps) return [a, b];
+    return rdp(l.slice(0, idx + 1), eps).slice(0, -1).concat(rdp(l.slice(idx), eps));
+  }
+  function smoothD(l) {
+    if (l.length < 3) return pathD(l);
+    var d = "M" + l[0][0] + " " + l[0][1];
+    for (var i = 1; i < l.length - 1; i++) {
+      var mx = Math.round((l[i][0] + l[i + 1][0]) / 2), my = Math.round((l[i][1] + l[i + 1][1]) / 2);
+      d += " Q" + l[i][0] + " " + l[i][1] + " " + mx + " " + my;
+    }
+    var z = l[l.length - 1];
+    return d + " L" + z[0] + " " + z[1];
+  }
+  function commitFree() {
+    var l = rdp(freePts, CONFIG.freehandSmooth || 4);
+    freePts = []; draftG.innerHTML = "";
+    if (l.length < 2 || pathLen(l) < 10) { setHint("Linie zu kurz – nicht gespeichert."); return; }
+    addGroup([{ kind: "path", d: smoothD(l), len: pathLen(l) }]);
+    renderExisting(); setHint("Freihandlinie gespeichert.");
+  }
+
+  /* Parallele: Bezugslinie wählen, Startpunkt setzen, Endpunkt wird auf die Richtung projiziert */
+  var parRef = null;
+  function segments() {
+    var out = [];
+    timeline(allDrawn(), parseInt(dStep.value, 10)).items.forEach(function (it) {
+      if (it.kind !== "path" || it.tick || /[QCSAqcsa]/.test(it.d)) return;
+      var tk = it.d.match(/[MLHVZmlhvz]|-?\d+(\.\d+)?/g) || [], cmd = null, cur = null, start = null, i = 0, nx;
+      while (i < tk.length) {
+        var t = tk[i];
+        if (/[A-Za-z]/.test(t)) { cmd = t.toUpperCase(); i++; if (cmd === "Z") { if (cur && start) out.push([cur, start]); cur = start; } continue; }
+        if (cmd === "M") { nx = [+tk[i], +tk[i + 1]]; i += 2; start = cur = nx; cmd = "L"; continue; }
+        if (cmd === "L") { nx = [+tk[i], +tk[i + 1]]; i += 2; }
+        else if (cmd === "H") { nx = [+tk[i], cur[1]]; i += 1; }
+        else if (cmd === "V") { nx = [cur[0], +tk[i]]; i += 1; }
+        else { i++; continue; }
+        if (cur && (cur[0] !== nx[0] || cur[1] !== nx[1])) out.push([cur, nx]);
+        cur = nx;
+      }
+    });
+    return out;
+  }
+  function distSeg(p, a, b) {
+    var dx = b[0] - a[0], dy = b[1] - a[1], L2 = dx * dx + dy * dy || 1;
+    var t = clamp(((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L2, 0, 1);
+    return Math.hypot(p[0] - (a[0] + t * dx), p[1] - (a[1] + t * dy));
+  }
+  function parProject(a, p) {
+    var dx = parRef[1][0] - parRef[0][0], dy = parRef[1][1] - parRef[0][1], L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
+    var t = (p[0] - a[0]) * ux + (p[1] - a[1]) * uy;
+    return [Math.round(a[0] + ux * t), Math.round(a[1] + uy * t)];
+  }
+  function renderPar(preview) {
+    renderDraft();
+    if (!parRef) return;
+    var r = document.createElementNS(NS, "path");
+    r.setAttribute("d", pathD(parRef)); r.setAttribute("class", "draft");
+    r.style.strokeWidth = "14"; r.style.strokeDasharray = "18 12"; r.style.opacity = ".8";
+    draftG.insertBefore(r, draftG.firstChild);
+    if (preview && pts.length === 1) {
+      var q = document.createElementNS(NS, "path");
+      q.setAttribute("d", pathD([pts[0], preview])); q.setAttribute("class", "line"); q.style.stroke = dColor.value; q.style.opacity = ".7";
+      draftG.appendChild(q);
+    }
+  }
+  function parClick(p) {
+    if (!parRef) {
+      var best = null, bd = 1e9;
+      segments().forEach(function (sg) { var d = distSeg(p, sg[0], sg[1]); if (d < bd) { bd = d; best = sg; } });
+      if (!best || bd > 45) { setHint("Keine gerade Linie in der Nähe. Näher an eine bestehende Linie tippen."); return; }
+      parRef = best; pts = []; renderPar(); updateHint(); return;
+    }
+    if (!pts.length) { pts = [p]; renderPar(); updateHint(); return; }
+    var q = parProject(pts[0], p), seg = [pts[0], q];
+    if (pathLen(seg) < 10) { setHint("Parallele zu kurz – Endpunkt weiter entfernt setzen."); return; }
+    addGroup([{ kind: "path", d: pathD(seg), len: pathLen(seg) }]);
+    pts = []; renderExisting(); renderPar();
+    setHint("Parallele gespeichert. Nächsten Startpunkt setzen oder „Abschließen“ für neue Bezugslinie.");
+  }
+
+  var pressing = false;
+  stage.addEventListener("pointerdown", function (e) {
+    if (!drawActive) { if (!camLive && !forceFallback) startCamera(true); return; }
+    if (dTool.value === "free") {
+      pressing = "free"; e.preventDefault();
+      try { stage.setPointerCapture(e.pointerId); } catch (x) {}
+      freePts = []; freeAdd(e); return;
+    }
+    pressing = true; e.preventDefault();
+    try { stage.setPointerCapture(e.pointerId); } catch (x) {}
+    drawLoupe(e.clientX, e.clientY);
+  });
+  stage.addEventListener("pointermove", function (e) { if (pressing === "free") { e.preventDefault(); freeAdd(e); renderFree(); return; } if (pressing) { e.preventDefault(); drawLoupe(e.clientX, e.clientY); if (dTool.value === "par" && parRef && pts.length === 1) renderPar(parProject(pts[0], toOverlay(stageToSvg(e.clientX, e.clientY)))); } });
+  stage.addEventListener("pointercancel", function () { pressing = false; freePts = []; draftG.innerHTML = ""; loupe.style.display = "none"; });
+  stage.addEventListener("pointerup", function (e) {
+    if (!pressing) return;
+    if (pressing === "free") { pressing = false; freeAdd(e); commitFree(); return; }
+    pressing = false; loupe.style.display = "none";
+    var p = toOverlay(stageToSvg(e.clientX, e.clientY));
+    var t = dTool.value;
+    if (t === "par") { parClick(p); return; }
+    if (t === "text") {
+      var txt = window.prompt("Beschriftung (" + langHint + "):", "");
+      if (txt) { addGroup([{ kind: "text", x: p[0], y: p[1], anchor: "start", text: parseMulti(txt) }]); renderExisting(); setHint("Gespeichert."); }
+      return;
+    }
+    p = snapPt(pts[pts.length - 1], p);
+    pts.push(p); renderDraft(); updateHint();
+    if (t !== "poly" && pts.length === 2) commit();
+  });
+
+  $("dFinish").addEventListener("click", function () {
+    if (dTool.value === "poly") commit();
+    else if (dTool.value === "par") { parRef = null; pts = []; renderDraft(); updateHint(); }
+    else setHint("Nur beim Linienzug und bei der Parallele nötig.");
+  });
+  $("dUndo").addEventListener("click", function () {
+    if (pts.length) { pts.pop(); renderDraft(); updateHint(); return; }
+    if (!stored.length) { setHint("Nichts zum Rückgängigmachen."); return; }
+    var g = stored[stored.length - 1].g;
+    if (g) stored = stored.filter(function (e) { return e.g !== g; }); else stored.pop();
+    saveDrawn(); renderExisting(); setHint("Letztes Element entfernt.");
+  });
+  $("dClear").addEventListener("click", function () {
+    if (window.confirm("Alle Zeichnungen von Station " + stNo + " auf diesem iPad löschen? (Vorher exportieren!) Elemente aus der Datei bleiben erhalten.")) {
+      stored = []; saveDrawn(); renderExisting(); if (!drawActive) buildScene(); setHint("Gelöscht.");
+    }
+  });
+  $("dReload").addEventListener("click", function () { location.reload(); });
+  $("dCode").addEventListener("click", function () {
+    var out = "drawn: [\n" + allDrawn().map(function (e) { return "  " + JSON.stringify(e); }).join(",\n") + "\n]";
+    var ta = $("dOut"); ta.value = out; ta.focus(); ta.select();
+    try { if (navigator.clipboard) navigator.clipboard.writeText(out); } catch (e) {}
+    setHint("Code für Station " + stNo + " angezeigt (ggf. kopiert).");
+  });
+
+  /* ---------- Referenzbild / Ersatzbild ---------- */
+  function captureRef() {
+    if (!camLive || !video.videoWidth) return null;
+    var c = document.createElement("canvas"); c.width = W; c.height = H;
+    var vw = video.videoWidth, vh = video.videoHeight, target = W / H, sx = 0, sy = 0, sw = vw, sh = vh;
+    if (vw / vh > target) { sw = vh * target; sx = (vw - sw) / 2; } else { sh = vw / target; sy = (vh - sh) / 2; }
+    c.getContext("2d").drawImage(video, sx, sy, sw, sh, 0, 0, W, H);
+    var d = new Date();
+    return { img: c.toDataURL("image/jpeg", 0.85), w: W, h: H, date: d.toLocaleDateString("de-DE") + " " + d.toLocaleTimeString("de-DE").slice(0, 5) };
+  }
+  function saveRef(auto) {
+    var r = captureRef();
+    if (!r) { if (!auto) setHint("Kein Live-Kamerabild – Referenzbild nicht gespeichert."); return; }
+    refData = r; refPut(stNo, r); applyFallbackImage(); updateStatus();
+    if (!auto) setHint("Referenzbild für Station " + stNo + " gespeichert.");
+  }
+  $("refSave").addEventListener("click", function () { saveRef(false); });
+  $("refShow").addEventListener("click", function () {
+    if (!refData) { setHint("Noch kein Referenzbild gespeichert."); return; }
+    $("snapImg").src = refData.img; $("snapInfo").textContent = "Station " + stNo + " · " + (refData.date || "");
+    $("snapView").style.display = "flex";
+  });
+  $("snapClose").addEventListener("click", function () { $("snapView").style.display = "none"; });
+  function applyFallbackImage() {
+    if (refData && refData.img) fallback.src = refData.img; else fallback.removeAttribute("src");
+    updateFallback();
+  }
+  function updateFallback() {
+    var useFb = forceFallback || !camLive;
+    fallback.style.display = useFb ? "block" : "none";
+    video.style.visibility = useFb ? "hidden" : "visible";
+  }
+  $("fbTest").addEventListener("change", function (e) { forceFallback = e.target.checked; updateFallback(); updateStatus(); });
+
+  /* ---------- Kamera mit Überwachung ---------- */
+  var camBusy = false, permDenied = false, lastT = -1, stuckSince = 0, lastTry = 0;
+  function stopTracks() { try { if (video.srcObject) video.srcObject.getTracks().forEach(function (t) { t.stop(); }); } catch (e) {} video.srcObject = null; }
+  function showStart(msg, alt) {
+    startScreen.style.display = "flex";
+    if (msg) $("startMsg").textContent = msg;
+    $("startAlt").style.display = alt ? "inline-block" : "none";
+  }
+  function startCamera(silent) {
+    if (camBusy) return Promise.resolve();
+    lastTry = Date.now();
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      noCamera("Kein Kamerazugriff möglich. Die App muss über https:// installiert bzw. geöffnet werden (nicht als lokale Datei).", silent);
+      return Promise.resolve();
+    }
+    camBusy = true; stopTracks();
+    return navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" }, width: { ideal: 1920 }, height: { ideal: 1440 } }, audio: false })
+      .then(function (stream) {
+        camBusy = false; permDenied = false;
+        video.srcObject = stream;
+        var p = video.play(); if (p && p.catch) p.catch(function () {});
+        stream.getVideoTracks()[0].addEventListener("ended", function () { camLive = false; updateFallback(); });
+        startScreen.style.display = "none";
+        keepAwake();
+      })
+      .catch(function (err) {
+        camBusy = false;
+        if (err && err.name === "NotAllowedError") permDenied = true;
+        noCamera("Kamera nicht verfügbar oder nicht freigegeben. Bitte Kamerafreigabe erlauben und erneut tippen.", silent);
+      });
+  }
+  function noCamera(msg, silent) {
+    camLive = false; updateFallback();
+    if (refData) { startScreen.style.display = "none"; return; }  /* Ersatzbild läuft weiter */
+    if (!silent) showStart(msg, true);
+  }
+  /* Überwachung: friert das Bild ein oder fällt die Kamera aus, wird das Referenzbild gezeigt und neu verbunden */
+  setInterval(function () {
+    var live = !!video.srcObject && video.readyState >= 2 && video.currentTime !== lastT;
+    if (live) {
+      lastT = video.currentTime; stuckSince = 0;
+      if (!camLive) { camLive = true; updateFallback(); setTimeout(function () { if (camLive && !refData) saveRef(true); }, 3000); }
+    } else if (video.srcObject) {
+      if (!stuckSince) stuckSince = Date.now();
+      if (camLive && Date.now() - stuckSince > 6000) { camLive = false; updateFallback(); }
+    }
+    if (!camLive && !permDenied && Date.now() - lastTry > 15000) startCamera(true);
+  }, 1000);
+
+  function keepAwake() { try { if (navigator.wakeLock) navigator.wakeLock.request("screen").catch(function () {}); } catch (e) {} }
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") { keepAwake(); if (!camLive) startCamera(true); }
+  });
+  $("startBtn").addEventListener("click", function (e) { e.stopPropagation(); permDenied = false; startCamera(false); });
+  $("startAlt").addEventListener("click", function (e) { e.stopPropagation(); startScreen.style.display = "none"; updateFallback(); keepAwake(); });
+
+  /* ---------- Export / Import ---------- */
+  $("exp").addEventListener("click", function () {
+    var d = new Date(), ds = d.toISOString().slice(0, 10);
+    var data = { app: "ar-station", format: 1, version: CONFIG.version, exported: d.toISOString(), station: stNo,
+      name: ST.name, orient: ST.orient, drawn: stored, cal: cal, ref: refData };
+    var name = "AR-Station-" + stNo + "_" + ds + ".json";
+    var json = JSON.stringify(data);
+    var file = null;
+    try { file = new File([json], name, { type: "application/json" }); } catch (e) {}
+    if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({ files: [file], title: name }).then(function () { setHint("Export geteilt: " + name); })
+        .catch(function (e) { if (e && e.name !== "AbortError") download(json, name); });
+    } else download(json, name);
+  });
+  function download(json, name) {
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([json], { type: "application/json" }));
+    a.download = name; document.body.appendChild(a); a.click(); a.remove();
+    setHint("Export heruntergeladen: " + name);
+  }
+  $("imp").addEventListener("click", function () { $("impFile").value = ""; $("impFile").click(); });
+  $("impFile").addEventListener("change", function (e) {
+    var f = e.target.files && e.target.files[0]; if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      var d; try { d = JSON.parse(rd.result); } catch (x) { setHint("Datei ist kein gültiger Export."); return; }
+      if (!d || d.app !== "ar-station" || !CONFIG.stations[d.station]) { setHint("Datei ist kein gültiger Export dieser App."); return; }
+      if (!window.confirm("Station " + d.station + " (" + d.name + ", exportiert " + (d.exported || "").slice(0, 10) + ") übernehmen?\n\nÜberschreibt Zeichnungen, Ausrichtung und Referenzbild dieser Station auf diesem iPad und stellt das iPad auf Station " + d.station + ".")) return;
+      lsSet("s" + d.station + "_drawn", d.drawn || []);
+      lsSet("s" + d.station + "_cal", d.cal || { x: 0, y: 0, s: 1, r: 0 });
+      lsSet("station", String(d.station));
+      refPut(d.station, d.ref || null).then(function () { switchStation(String(d.station)); setHint("Import von Station " + d.station + " abgeschlossen."); });
+    };
+    rd.readAsText(f);
+  });
+
+  /* ---------- Offline-Betrieb (Service Worker) ---------- */
+  if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
+    navigator.serviceWorker.register("sw.js").catch(function () {});
+  }
+
+  /* ---------- Start ---------- */
+  loadStation(stNo);
+  $("station").value = stNo;
+  updateHint();
+  requestAnimationFrame(frame);
+  dbOpen().then(function () { return refGet(stNo); }).then(function (r) {
+    refData = r; applyFallbackImage();
+    startCamera(false);
+  });
+})();
+</script>
+</body>
+</html>
